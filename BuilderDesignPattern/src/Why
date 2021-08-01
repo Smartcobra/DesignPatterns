@@ -1,0 +1,6 @@
+Builder Design Pattern Solves-
+
+    1-Too many constructor arguments.
+    2-Incorrect object state.
+
+Mostly used for creating Immutable objects.
