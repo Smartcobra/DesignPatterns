@@ -9,3 +9,37 @@ Proxy is heavily used to implement lazy loading related user case.
                object.
 
 
+//Example--> Spring @Transactional
+                   It creates a proxy object on the method @Transaction applied.
+
+                      example:
+                          class DepartmentService{
+                          @Transactional
+                          pubic void createDepartment(Department dep){
+                             Employee emp= new  Employee();
+                                   departmentDao.create(dep);
+                                   createEmployee(emp);
+                          }
+
+                       public void createEmployee(Employee emp){
+                       empDao.createEmp(emp);
+
+                       }
+                    }
+
+this will create a proxyclass like
+
+                  class DepartmentServiceProxy extends DepartmentService{
+                            pubic void createDepartment(Department dep){
+
+                       UserTransaction usertransaction=entitymanager.getTransaction().begin;
+                         super.departmentDao.create(dep);
+
+                      UserTransaction usertransaction=entitymanager.getTransaction().commit;
+
+                  }
+
+
+
+
+
