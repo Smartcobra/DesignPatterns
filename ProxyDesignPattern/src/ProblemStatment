@@ -1,0 +1,11 @@
+Proxy Object provides a plcaeholder for another another object to control access to it.
+
+Proxy is heavily used to implement lazy loading related user case.
+   particepents-
+               Subject ->this is the interface which expose the functionality available to be used by clients.
+               Real  Subject->is a class implementting subject and its concrete implmentation which needs to be hidden
+                  behind proxy.
+               proxy- Hides the real object by extending it and clients communicate to real object via this proxy
+               object.
+
+
