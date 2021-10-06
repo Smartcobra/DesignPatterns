@@ -4,6 +4,7 @@ import com.jit.startegy.Payment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ShopingCart {
     private List<Item> items;
@@ -22,13 +23,14 @@ public class ShopingCart {
 
     }
     public  double calculateSum(){
-        double sum=0;
-        for (Item  item:items){
-           sum= sum+item.getPrice(item.getName());
-        }
-        return sum;
+       // double sum=0;
+//        for (Item  item:items){
+//           sum= sum+item.getPrice(item.getName);  //wrong why to pass same object as it is there.
+//        }
+        Optional<Double> sum = items.stream().
+                map(Item::getPrice).reduce((a, b) -> a + b);
 
-
+        return sum.get();
 
     }
     public void pay(Payment payment){

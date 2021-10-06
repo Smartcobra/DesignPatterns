@@ -11,9 +11,9 @@ public class Item {
         this.name = name;
     }
 
-    public double getPrice(String name) {
+    public double getPrice() {
         priceChart = new PriceChart();
-        return price=priceChart.getPrice(name);
+        return price=priceChart.getPrice(this.name);
     }
 
    public String getName(){

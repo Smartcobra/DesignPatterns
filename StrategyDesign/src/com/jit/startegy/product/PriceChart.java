@@ -8,6 +8,11 @@ public class PriceChart {
     private double price;
     private static final  Map<String, Double> priceChart;
 
+   public PriceChart(){
+
+   }
+
+   //singleton
     static {
         priceChart= new HashMap<String, Double>();
 
